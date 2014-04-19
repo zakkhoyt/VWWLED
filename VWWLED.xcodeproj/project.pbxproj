@@ -19,6 +19,8 @@
 		CF7F18E8190300C3003FB14F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF7F18E6190300C3003FB14F /* InfoPlist.strings */; };
 		CF7F18EA190300C3003FB14F /* VWWLEDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7F18E9190300C3003FB14F /* VWWLEDTests.m */; };
 		CF7F18FD190310B9003FB14F /* SerialExample.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7F18FB190310B9003FB14F /* SerialExample.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CFF6A5C61903255C00D4914E /* VWWArduinoController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF6A5C51903255C00D4914E /* VWWArduinoController.m */; };
+		CFF6A5C919032BA800D4914E /* VWWArduinoWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF6A5C819032BA800D4914E /* VWWArduinoWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,11 @@
 		CF7F18E9190300C3003FB14F /* VWWLEDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWLEDTests.m; sourceTree = "<group>"; };
 		CF7F18FB190310B9003FB14F /* SerialExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialExample.m; sourceTree = "<group>"; };
 		CF7F18FC190310B9003FB14F /* SerialExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialExample.h; sourceTree = "<group>"; };
+		CF7F18FF19031DEC003FB14F /* VWWLED_sketch.ino */ = {isa = PBXFileReference; lastKnownFileType = text; path = VWWLED_sketch.ino; sourceTree = "<group>"; };
+		CFF6A5C41903255C00D4914E /* VWWArduinoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWArduinoController.h; sourceTree = "<group>"; };
+		CFF6A5C51903255C00D4914E /* VWWArduinoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWArduinoController.m; sourceTree = "<group>"; };
+		CFF6A5C719032BA800D4914E /* VWWArduinoWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWArduinoWindowController.h; sourceTree = "<group>"; };
+		CFF6A5C819032BA800D4914E /* VWWArduinoWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWArduinoWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +86,7 @@
 		CF7F18B3190300C2003FB14F = {
 			isa = PBXGroup;
 			children = (
+				CF7F18FE19031DEC003FB14F /* VWWLED_sketch */,
 				CF7F18C5190300C3003FB14F /* VWWLED */,
 				CF7F18E3190300C3003FB14F /* VWWLEDTests */,
 				CF7F18BE190300C3003FB14F /* Frameworks */,
@@ -125,6 +133,10 @@
 				CF7F18D4190300C3003FB14F /* MainMenu.xib */,
 				CF7F18D7190300C3003FB14F /* Images.xcassets */,
 				CF7F18C6190300C3003FB14F /* Supporting Files */,
+				CFF6A5C41903255C00D4914E /* VWWArduinoController.h */,
+				CFF6A5C51903255C00D4914E /* VWWArduinoController.m */,
+				CFF6A5C719032BA800D4914E /* VWWArduinoWindowController.h */,
+				CFF6A5C819032BA800D4914E /* VWWArduinoWindowController.m */,
 			);
 			path = VWWLED;
 			sourceTree = "<group>";
@@ -157,6 +169,14 @@
 				CF7F18E6190300C3003FB14F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CF7F18FE19031DEC003FB14F /* VWWLED_sketch */ = {
+			isa = PBXGroup;
+			children = (
+				CF7F18FF19031DEC003FB14F /* VWWLED_sketch.ino */,
+			);
+			path = VWWLED_sketch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +278,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFF6A5C919032BA800D4914E /* VWWArduinoWindowController.m in Sources */,
 				CF7F18CC190300C3003FB14F /* main.m in Sources */,
 				CF7F18FD190310B9003FB14F /* SerialExample.m in Sources */,
 				CF7F18D3190300C3003FB14F /* VWWAppDelegate.m in Sources */,
+				CFF6A5C61903255C00D4914E /* VWWArduinoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +495,7 @@
 				CF7F18EF190300C3003FB14F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF7F18F0190300C3003FB14F /* Build configuration list for PBXNativeTarget "VWWLEDTests" */ = {
 			isa = XCConfigurationList;
@@ -481,6 +504,7 @@
 				CF7F18F2190300C3003FB14F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

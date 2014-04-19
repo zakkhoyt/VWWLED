@@ -19,6 +19,8 @@
 	NSTextStorage *storage;
     IBOutlet NSImageView *imageView;
 }
+
+
 @end
 @implementation SerialExample
 
