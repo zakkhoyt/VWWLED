@@ -18,6 +18,7 @@
 		CF7F18E0190300C3003FB14F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7F18BF190300C3003FB14F /* Cocoa.framework */; };
 		CF7F18E8190300C3003FB14F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF7F18E6190300C3003FB14F /* InfoPlist.strings */; };
 		CF7F18EA190300C3003FB14F /* VWWLEDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7F18E9190300C3003FB14F /* VWWLEDTests.m */; };
+		CF7F18FD190310B9003FB14F /* SerialExample.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7F18FB190310B9003FB14F /* SerialExample.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		CF7F18E5190300C3003FB14F /* VWWLEDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VWWLEDTests-Info.plist"; sourceTree = "<group>"; };
 		CF7F18E7190300C3003FB14F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CF7F18E9190300C3003FB14F /* VWWLEDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWLEDTests.m; sourceTree = "<group>"; };
+		CF7F18FB190310B9003FB14F /* SerialExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialExample.m; sourceTree = "<group>"; };
+		CF7F18FC190310B9003FB14F /* SerialExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialExample.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 		CF7F18C5190300C3003FB14F /* VWWLED */ = {
 			isa = PBXGroup;
 			children = (
+				CF7F18FB190310B9003FB14F /* SerialExample.m */,
+				CF7F18FC190310B9003FB14F /* SerialExample.h */,
 				CF7F18D1190300C3003FB14F /* VWWAppDelegate.h */,
 				CF7F18D2190300C3003FB14F /* VWWAppDelegate.m */,
 				CF7F18D4190300C3003FB14F /* MainMenu.xib */,
@@ -254,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF7F18CC190300C3003FB14F /* main.m in Sources */,
+				CF7F18FD190310B9003FB14F /* SerialExample.m in Sources */,
 				CF7F18D3190300C3003FB14F /* VWWAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

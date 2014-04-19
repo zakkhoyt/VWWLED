@@ -60,22 +60,22 @@
 	
 	if (serialFileDescriptor == -1) { 
 		// check if the port opened correctly
-		errorMessage = @"Error: couldn't open serial port";
+		errorMessage = [@"Error: couldn't open serial port" mutableCopy];
 	} else {
 		// TIOCEXCL causes blocking of non-root processes on this serial-port
 		success = ioctl(serialFileDescriptor, TIOCEXCL);
 		if ( success == -1) { 
-			errorMessage = @"Error: couldn't obtain lock on serial port";
+			errorMessage = [@"Error: couldn't obtain lock on serial port" mutableCopy];
 		} else {
 			success = fcntl(serialFileDescriptor, F_SETFL, 0);
 			if ( success == -1) { 
 				// clear the O_NONBLOCK flag; all calls from here on out are blocking for non-root processes
-				errorMessage = @"Error: couldn't obtain lock on serial port";
+				errorMessage = [@"Error: couldn't obtain lock on serial port" mutableCopy];
 			} else {
 				// Get the current options and save them so we can restore the default settings later.
 				success = tcgetattr(serialFileDescriptor, &gOriginalTTYAttrs);
 				if ( success == -1) { 
-					errorMessage = @"Error: couldn't get serial attributes";
+					errorMessage = [@"Error: couldn't get serial attributes" mutableCopy];
 				} else {
 					// copy the old termios settings into the current
 					//   you want to do this so that you get all the control characters assigned
@@ -94,17 +94,17 @@
 					// set tty attributes (raw-mode in this case)
 					success = tcsetattr(serialFileDescriptor, TCSANOW, &options);
 					if ( success == -1) {
-						errorMessage = @"Error: coudln't set serial attributes";
+						errorMessage = [@"Error: coudln't set serial attributes" mutableCopy];
 					} else {
 						// Set baud rate (any arbitrary baud rate can be set this way)
 						success = ioctl(serialFileDescriptor, IOSSIOSPEED, &baudRate);
 						if ( success == -1) { 
-							errorMessage = @"Error: Baud Rate out of bounds";
+							errorMessage = [@"Error: Baud Rate out of bounds" mutableCopy];
 						} else {
 							// Set the receive latency (a.k.a. don't wait to buffer data)
 							success = ioctl(serialFileDescriptor, IOSSDATALAT, &mics);
 							if ( success == -1) { 
-								errorMessage = @"Error: coudln't set serial latency";
+								errorMessage = [@"Error: coudln't set serial latency" mutableCopy];
 							}
 						}
 					}
@@ -200,7 +200,7 @@
 	IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching(kIOSerialBSDServiceValue), &serialPortIterator);
 	
 	// loop through all the serial ports and add them to the array
-	while (serialPort = IOIteratorNext(serialPortIterator)) {
+	while ((serialPort = IOIteratorNext(serialPortIterator))) {
 		[serialListPullDown addItemWithTitle:
 			(NSString*)IORegistryEntryCreateCFProperty(serialPort, CFSTR(kIOCalloutDeviceKey),  kCFAllocatorDefault, 0)];
 		IOObjectRelease(serialPort);
