@@ -118,8 +118,8 @@
 		CF7F18C5190300C3003FB14F /* VWWLED */ = {
 			isa = PBXGroup;
 			children = (
-				CF7F18FB190310B9003FB14F /* SerialExample.m */,
 				CF7F18FC190310B9003FB14F /* SerialExample.h */,
+				CF7F18FB190310B9003FB14F /* SerialExample.m */,
 				CF7F18D1190300C3003FB14F /* VWWAppDelegate.h */,
 				CF7F18D2190300C3003FB14F /* VWWAppDelegate.m */,
 				CF7F18D4190300C3003FB14F /* MainMenu.xib */,

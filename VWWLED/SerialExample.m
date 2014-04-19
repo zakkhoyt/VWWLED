@@ -8,6 +8,18 @@
 #import "SerialExample.h"
 
 
+@interface SerialExample () {
+    IBOutlet NSPopUpButton *serialListPullDown;
+	IBOutlet NSTextView *serialOutputArea;
+	IBOutlet NSTextField *serialInputField;
+	IBOutlet NSTextField *baudInputField;
+	int serialFileDescriptor; // file handle to the serial port
+	struct termios gOriginalTTYAttrs; // Hold the original termios attributes so we can reset them on quit ( best practice )
+	bool readThreadRunning;
+	NSTextStorage *storage;
+    IBOutlet NSImageView *imageView;
+}
+@end
 @implementation SerialExample
 
 // executes after everything in the xib/nib is initiallized
@@ -314,4 +326,51 @@
 	}
 }
 
+
+- (IBAction)openButtonAction:(id)sender {
+
+    NSOpenPanel* openDlg = [NSOpenPanel openPanel];
+
+    // Enable the selection of files in the dialog.
+    [openDlg setCanChooseFiles:YES];
+
+    // Enable the selection of directories in the dialog.
+    [openDlg setCanChooseDirectories:NO];
+
+    // Change "Open" dialog button to "Select"
+    [openDlg setPrompt:@"Select image"];
+
+//    NSString *lastDirectoryPath;// = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastDir"];
+//    if(lastDirectoryPath == nil){
+//        lastDirectoryPath = [NSURL URLWithString:@"~/Pictures/"];
+//    }
+//    NSURL *lastDirectoryURL = [NSURL fileURLWithPath:lastDirectoryPath];
+//    [openDlg setDirectoryURL:lastDirectoryURL];
+
+
+    if ( [openDlg runModal] == NSOKButton )
+    {
+        if(openDlg.URLs.count){
+            NSURL *fileURL = openDlg.URLs[0];
+            NSString *ext = [fileURL lastPathComponent];
+            NSLog(@"file: %@ %@", fileURL, ext);
+
+
+            imageView.image = [[NSImage alloc]initWithContentsOfURL:fileURL];
+
+
+            // Get path and save in NSUserDefaults
+
+            NSURL *directoryURL = [fileURL URLByDeletingLastPathComponent];
+            NSString *filenameURL = [fileURL lastPathComponent];
+            NSLog(@"DIR: %@", directoryURL);
+            NSLog(@"filename: %@", filenameURL);
+
+            //self.statusTextField.stringValue = @"Image opened. Sending to arduino...";
+
+//            [[NSUserDefaults standardUserDefaults] setObject:directoryURL.path forKey:@"lastDir"];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+    }
+}
 @end
