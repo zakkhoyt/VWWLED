@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CF7F18C0190300C3003FB14F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7F18BF190300C3003FB14F /* Cocoa.framework */; };
+		CF7F18CA190300C3003FB14F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF7F18C8190300C3003FB14F /* InfoPlist.strings */; };
+		CF7F18CC190300C3003FB14F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7F18CB190300C3003FB14F /* main.m */; };
+		CF7F18D0190300C3003FB14F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CF7F18CE190300C3003FB14F /* Credits.rtf */; };
+		CF7F18D3190300C3003FB14F /* VWWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7F18D2190300C3003FB14F /* VWWAppDelegate.m */; };
+		CF7F18D6190300C3003FB14F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF7F18D4190300C3003FB14F /* MainMenu.xib */; };
+		CF7F18D8190300C3003FB14F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF7F18D7190300C3003FB14F /* Images.xcassets */; };
+		CF7F18DF190300C3003FB14F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7F18DE190300C3003FB14F /* XCTest.framework */; };
+		CF7F18E0190300C3003FB14F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7F18BF190300C3003FB14F /* Cocoa.framework */; };
+		CF7F18E8190300C3003FB14F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF7F18E6190300C3003FB14F /* InfoPlist.strings */; };
+		CF7F18EA190300C3003FB14F /* VWWLEDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7F18E9190300C3003FB14F /* VWWLEDTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CF7F18E1190300C3003FB14F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF7F18B4190300C2003FB14F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF7F18BB190300C3003FB14F;
+			remoteInfo = VWWLED;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CF7F18BC190300C3003FB14F /* VWWLED.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VWWLED.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF7F18BF190300C3003FB14F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		CF7F18C2190300C3003FB14F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		CF7F18C3190300C3003FB14F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CF7F18C4190300C3003FB14F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CF7F18C7190300C3003FB14F /* VWWLED-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VWWLED-Info.plist"; sourceTree = "<group>"; };
+		CF7F18C9190300C3003FB14F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CF7F18CB190300C3003FB14F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CF7F18CD190300C3003FB14F /* VWWLED-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VWWLED-Prefix.pch"; sourceTree = "<group>"; };
+		CF7F18CF190300C3003FB14F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		CF7F18D1190300C3003FB14F /* VWWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWAppDelegate.h; sourceTree = "<group>"; };
+		CF7F18D2190300C3003FB14F /* VWWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWAppDelegate.m; sourceTree = "<group>"; };
+		CF7F18D5190300C3003FB14F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		CF7F18D7190300C3003FB14F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CF7F18DD190300C3003FB14F /* VWWLEDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VWWLEDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF7F18DE190300C3003FB14F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CF7F18E5190300C3003FB14F /* VWWLEDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VWWLEDTests-Info.plist"; sourceTree = "<group>"; };
+		CF7F18E7190300C3003FB14F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CF7F18E9190300C3003FB14F /* VWWLEDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWLEDTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF7F18B9190300C3003FB14F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF7F18C0190300C3003FB14F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF7F18DA190300C3003FB14F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF7F18E0190300C3003FB14F /* Cocoa.framework in Frameworks */,
+				CF7F18DF190300C3003FB14F /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CF7F18B3190300C2003FB14F = {
+			isa = PBXGroup;
+			children = (
+				CF7F18C5190300C3003FB14F /* VWWLED */,
+				CF7F18E3190300C3003FB14F /* VWWLEDTests */,
+				CF7F18BE190300C3003FB14F /* Frameworks */,
+				CF7F18BD190300C3003FB14F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CF7F18BD190300C3003FB14F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF7F18BC190300C3003FB14F /* VWWLED.app */,
+				CF7F18DD190300C3003FB14F /* VWWLEDTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF7F18BE190300C3003FB14F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF7F18BF190300C3003FB14F /* Cocoa.framework */,
+				CF7F18DE190300C3003FB14F /* XCTest.framework */,
+				CF7F18C1190300C3003FB14F /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF7F18C1190300C3003FB14F /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF7F18C2190300C3003FB14F /* AppKit.framework */,
+				CF7F18C3190300C3003FB14F /* CoreData.framework */,
+				CF7F18C4190300C3003FB14F /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		CF7F18C5190300C3003FB14F /* VWWLED */ = {
+			isa = PBXGroup;
+			children = (
+				CF7F18D1190300C3003FB14F /* VWWAppDelegate.h */,
+				CF7F18D2190300C3003FB14F /* VWWAppDelegate.m */,
+				CF7F18D4190300C3003FB14F /* MainMenu.xib */,
+				CF7F18D7190300C3003FB14F /* Images.xcassets */,
+				CF7F18C6190300C3003FB14F /* Supporting Files */,
+			);
+			path = VWWLED;
+			sourceTree = "<group>";
+		};
+		CF7F18C6190300C3003FB14F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF7F18C7190300C3003FB14F /* VWWLED-Info.plist */,
+				CF7F18C8190300C3003FB14F /* InfoPlist.strings */,
+				CF7F18CB190300C3003FB14F /* main.m */,
+				CF7F18CD190300C3003FB14F /* VWWLED-Prefix.pch */,
+				CF7F18CE190300C3003FB14F /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CF7F18E3190300C3003FB14F /* VWWLEDTests */ = {
+			isa = PBXGroup;
+			children = (
+				CF7F18E9190300C3003FB14F /* VWWLEDTests.m */,
+				CF7F18E4190300C3003FB14F /* Supporting Files */,
+			);
+			path = VWWLEDTests;
+			sourceTree = "<group>";
+		};
+		CF7F18E4190300C3003FB14F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF7F18E5190300C3003FB14F /* VWWLEDTests-Info.plist */,
+				CF7F18E6190300C3003FB14F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF7F18BB190300C3003FB14F /* VWWLED */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF7F18ED190300C3003FB14F /* Build configuration list for PBXNativeTarget "VWWLED" */;
+			buildPhases = (
+				CF7F18B8190300C3003FB14F /* Sources */,
+				CF7F18B9190300C3003FB14F /* Frameworks */,
+				CF7F18BA190300C3003FB14F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VWWLED;
+			productName = VWWLED;
+			productReference = CF7F18BC190300C3003FB14F /* VWWLED.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CF7F18DC190300C3003FB14F /* VWWLEDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF7F18F0190300C3003FB14F /* Build configuration list for PBXNativeTarget "VWWLEDTests" */;
+			buildPhases = (
+				CF7F18D9190300C3003FB14F /* Sources */,
+				CF7F18DA190300C3003FB14F /* Frameworks */,
+				CF7F18DB190300C3003FB14F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF7F18E2190300C3003FB14F /* PBXTargetDependency */,
+			);
+			name = VWWLEDTests;
+			productName = VWWLEDTests;
+			productReference = CF7F18DD190300C3003FB14F /* VWWLEDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF7F18B4190300C2003FB14F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = VWW;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Zakk Hoyt";
+				TargetAttributes = {
+					CF7F18DC190300C3003FB14F = {
+						TestTargetID = CF7F18BB190300C3003FB14F;
+					};
+				};
+			};
+			buildConfigurationList = CF7F18B7190300C2003FB14F /* Build configuration list for PBXProject "VWWLED" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF7F18B3190300C2003FB14F;
+			productRefGroup = CF7F18BD190300C3003FB14F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF7F18BB190300C3003FB14F /* VWWLED */,
+				CF7F18DC190300C3003FB14F /* VWWLEDTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF7F18BA190300C3003FB14F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF7F18CA190300C3003FB14F /* InfoPlist.strings in Resources */,
+				CF7F18D8190300C3003FB14F /* Images.xcassets in Resources */,
+				CF7F18D0190300C3003FB14F /* Credits.rtf in Resources */,
+				CF7F18D6190300C3003FB14F /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF7F18DB190300C3003FB14F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF7F18E8190300C3003FB14F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF7F18B8190300C3003FB14F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF7F18CC190300C3003FB14F /* main.m in Sources */,
+				CF7F18D3190300C3003FB14F /* VWWAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF7F18D9190300C3003FB14F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF7F18EA190300C3003FB14F /* VWWLEDTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CF7F18E2190300C3003FB14F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF7F18BB190300C3003FB14F /* VWWLED */;
+			targetProxy = CF7F18E1190300C3003FB14F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CF7F18C8190300C3003FB14F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF7F18C9190300C3003FB14F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CF7F18CE190300C3003FB14F /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF7F18CF190300C3003FB14F /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		CF7F18D4190300C3003FB14F /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF7F18D5190300C3003FB14F /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		CF7F18E6190300C3003FB14F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF7F18E7190300C3003FB14F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CF7F18EB190300C3003FB14F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CF7F18EC190300C3003FB14F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CF7F18EE190300C3003FB14F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VWWLED/VWWLED-Prefix.pch";
+				INFOPLIST_FILE = "VWWLED/VWWLED-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CF7F18EF190300C3003FB14F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VWWLED/VWWLED-Prefix.pch";
+				INFOPLIST_FILE = "VWWLED/VWWLED-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CF7F18F1190300C3003FB14F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/VWWLED.app/Contents/MacOS/VWWLED";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VWWLED/VWWLED-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "VWWLEDTests/VWWLEDTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		CF7F18F2190300C3003FB14F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/VWWLED.app/Contents/MacOS/VWWLED";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VWWLED/VWWLED-Prefix.pch";
+				INFOPLIST_FILE = "VWWLEDTests/VWWLEDTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF7F18B7190300C2003FB14F /* Build configuration list for PBXProject "VWWLED" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF7F18EB190300C3003FB14F /* Debug */,
+				CF7F18EC190300C3003FB14F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF7F18ED190300C3003FB14F /* Build configuration list for PBXNativeTarget "VWWLED" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF7F18EE190300C3003FB14F /* Debug */,
+				CF7F18EF190300C3003FB14F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CF7F18F0190300C3003FB14F /* Build configuration list for PBXNativeTarget "VWWLEDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF7F18F1190300C3003FB14F /* Debug */,
+				CF7F18F2190300C3003FB14F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF7F18B4190300C2003FB14F /* Project object */;
+}
