@@ -35,6 +35,7 @@
 // Writing
 -(void)writeString:(NSString*)outString;
 -(void)writeByte:(uint8_t*)val;
+-(void)writeData:(NSData*)data;
 
 // Reading
 

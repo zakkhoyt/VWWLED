@@ -19,12 +19,16 @@ static NSString *VWWArdruinoErrorDomain = @"VWWArduinoControler";
 
 
 
-@interface VWWArduinoController ()
+@interface VWWArduinoController (){
+    NSUInteger _currentBaudRate;
+}
 @property (nonatomic, strong) NSMutableArray *serialPorts;
 @property (nonatomic) int serialFileDescriptor; // file handle to the serial port
 @property (nonatomic) struct termios gOriginalTTYAttrs; // Hold the original termios attributes so we can reset them on quit ( best practice )
 @property (nonatomic) bool readThreadRunning;
 @property (nonatomic) NSTextStorage *storage;
+@property (nonatomic, strong) NSString *currentSerialPort;
+
 @property (nonatomic, strong) dispatch_queue_t serialQueue;
 @end
 
@@ -69,6 +73,11 @@ static NSString *VWWArdruinoErrorDomain = @"VWWArduinoControler";
 // Connections
 -(BOOL)connectToSerialPort:(NSString*)serialPort withBaudRate:(NSUInteger)baudRate{
 	int success;
+    
+    // Already connected
+    if([serialPort isEqualToString:self.currentSerialPort]){
+        return YES;
+    }
 	
 	// close the port if it is already open
 	if (self.serialFileDescriptor != -1) {
@@ -97,7 +106,7 @@ static NSString *VWWArdruinoErrorDomain = @"VWWArduinoControler";
 	// open the port
 	//     O_NONBLOCK causes the port to open without any delay (we'll block with another call)
 	self.serialFileDescriptor = open(bsdPath, O_RDWR | O_NOCTTY | O_NONBLOCK );
-	
+
 	if (self.serialFileDescriptor == -1) {
 		// check if the port opened correctly
 		errorMessage = [@"Error: couldn't open serial port" mutableCopy];
@@ -169,23 +178,52 @@ static NSString *VWWArdruinoErrorDomain = @"VWWArduinoControler";
     
     
     if(errorMessage){
+        self.currentSerialPort = nil;
+        _currentBaudRate = 0;
         NSError *error = [self error:errorMessage code:-1];
         [self errorOccurred:error];
     }
-
+    
+    _currentBaudRate = baudRate;
+    self.currentSerialPort = serialPort;
 	return errorMessage == nil;
 }
 -(BOOL)setBaudRateForCurrentSerialPort:(NSUInteger)baudRate{
+	if (self.serialFileDescriptor != -1) {
+		if(ioctl(self.serialFileDescriptor, IOSSIOSPEED, &baudRate)==-1) {
+            // If there is a failure, the behavior is undefined. Throw error to delegate
+            NSError *error = [self error:@"Failed to change baud rate" code:-1];
+            [self errorOccurred:error];
+		}
+	}
     return NO;
 }
+
 -(BOOL)disconnectFromCurrentSerialPort{
+//    if(self.serialFileDescriptor!=-1){
+//        
+//    }
+//    
+//    int ret = close(self.serialFileDescriptor);
+//    return YES;
     return NO;
 }
 -(NSString*)currentSerialPort{
-    return @"TODO";
+
+    void (^notConnected)() = ^() {
+        NSError *error = [self error:@"Current serial port: Not connected" code:-1];
+        [self errorOccurred:error];
+        
+    };
+//    if(self.serialFileDescriptor == -1){
+//        notConnected();
+//    }
+    
+    return _currentSerialPort;
 }
+
 -(NSUInteger)currentBaudRate{
-    return 0;
+    return _currentBaudRate;
 }
 
 
@@ -194,13 +232,28 @@ static NSString *VWWArdruinoErrorDomain = @"VWWArduinoControler";
     if(self.serialFileDescriptor!=-1) {
 		write(self.serialFileDescriptor, [outString cStringUsingEncoding:NSUTF8StringEncoding], [outString length]);
 	} else {
-        
-		// make sure the user knows they should select a serial port
-//		[self appendToIncomingText:@"\n ERROR:  Select a Serial Port from the pull-down menu\n"];
+        NSError *error = [self error:@"Tried to write string. Not connected" code:-1];
+        [self errorOccurred:error];
 	}
 }
 -(void)writeByte:(uint8_t*)val{
     
+    if(self.serialFileDescriptor!=-1) {
+		write(self.serialFileDescriptor, val, 1);
+	} else {
+        NSError *error = [self error:@"Tried to write data. Not connected" code:-1];
+        [self errorOccurred:error];
+    }
+    
+}
+
+-(void)writeData:(NSData*)data{
+    if(self.serialFileDescriptor!=-1) {
+		write(self.serialFileDescriptor, [data bytes], [data length]    );
+	} else {
+        NSError *error = [self error:@"Tried to write data. Not connected" code:-1];
+        [self errorOccurred:error];
+    }
 }
 
 // Reading
@@ -236,7 +289,7 @@ static NSString *VWWArdruinoErrorDomain = @"VWWArduinoControler";
         char byte_buffer[BUFFER_SIZE]; // buffer for holding incoming data
         int numBytes=0; // number of bytes read during read
         NSString *text; // incoming text from the serial port
-        
+        NSData *data;
         // assign a high priority to this thread
         [NSThread setThreadPriority:1.0];
         
@@ -247,10 +300,11 @@ static NSString *VWWArdruinoErrorDomain = @"VWWArduinoControler";
             if(numBytes>0) {
                 // create an NSString from the incoming bytes (the bytes aren't null terminated)
                 text = [NSString stringWithCString:byte_buffer encoding:NSUTF8StringEncoding];
-                
-                // this text can't be directly sent to the text area from this thread
-                //  BUT, we can call a selctor on the main thread.
                 [self receivedString:text];
+                
+                data = [NSData dataWithBytes:byte_buffer length:numBytes];
+                [self receivedData:data];
+                
             } else {
                 break; // Stop the thread if there is an error
             }
@@ -266,18 +320,23 @@ static NSString *VWWArdruinoErrorDomain = @"VWWArduinoControler";
         self.readThreadRunning = FALSE;
 	
     }
-
 }
 
 
-
+-(void)receivedData:(NSData*)inData{
+    if(self.delegate &&
+       [self.delegate respondsToSelector:@selector(arduinoController:didReceiveString:)]){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate arduinoController:self didReceiveData:inData];
+        });
+    }
+}
 -(void)receivedString:(NSString*)inString{
     if(self.delegate &&
        [self.delegate respondsToSelector:@selector(arduinoController:didReceiveString:)]){
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.delegate arduinoController:self didReceiveString:inString];
         });
-        
     }
 }
 

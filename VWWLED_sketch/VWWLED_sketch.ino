@@ -13,9 +13,15 @@ void loop() {
                 
 		// say what you got with both the ASCII and decimal representations
 		Serial.print("I received: ");
-		Serial.print(incomingByte,BYTE);
+		Serial.print(incomingByte, HEX);
 		Serial.print(" : ");
-		Serial.println(incomingByte, DEC);
-	}
+		Serial.print(incomingByte, DEC);
+		Serial.print(" : ");
+
+                char *str = (char*)malloc(10 * sizeof(byte));
+                sprintf(str, "%c\n", incomingByte);
+                Serial.println(str);
+                free(str);
+          }
 }
 

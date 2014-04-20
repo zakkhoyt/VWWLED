@@ -14,15 +14,15 @@
         <customObject id="Voe-Tx-rLC" customClass="VWWAppDelegate">
             <connections>
                 <outlet property="baudInputField" destination="6gt-1R-8WG" id="mr1-hF-Jay"/>
+                <outlet property="baudTextField" destination="Cbe-D2-7z6" id="tSm-Ln-dae"/>
                 <outlet property="connectButton" destination="30O-90-fJc" id="non-yZ-CMr"/>
                 <outlet property="devicesPopup" destination="0na-fA-edh" id="q0q-LO-EHb"/>
                 <outlet property="imageWell" destination="4dg-Ds-Swu" id="iDU-rf-x0h"/>
                 <outlet property="openButton" destination="gZS-jz-9N7" id="vFS-xJ-eTd"/>
                 <outlet property="reloadConnectionButton" destination="DNX-6K-Fgl" id="cyC-Z8-Ofp"/>
-                <outlet property="serailPortsPopup" destination="xLn-kj-uWT" id="rK2-Ks-hRm"/>
                 <outlet property="serialInputField" destination="W18-fp-OyO" id="vQz-wQ-vEz"/>
-                <outlet property="serialListPullDown" destination="xLn-kj-uWT" id="pzm-Rr-tQm"/>
                 <outlet property="serialOutputArea" destination="MeF-F7-0vz" id="Yf1-29-uMo"/>
+                <outlet property="serialPortsPopup" destination="ux5-E2-3CV" id="3zW-xf-b9X"/>
                 <outlet property="statusTextField" destination="erF-GF-yCS" id="6GC-7r-aCc"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -737,27 +737,8 @@
                             <action selector="openButtonAction:" target="Voe-Tx-rLC" id="4Df-rH-QOu"/>
                         </connections>
                     </button>
-                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xLn-kj-uWT">
-                        <rect key="frame" x="18" y="289" width="175" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="zQU-3h-6Gn">
-                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
-                            <menu key="menu" title="OtherViews" id="eWU-7H-Jdf">
-                                <items>
-                                    <menuItem title="Item 1" id="znh-Pc-rYv"/>
-                                    <menuItem title="Item 2" id="ON7-iU-xuR"/>
-                                    <menuItem title="Item 3" id="GJy-xf-jKc"/>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                        <connections>
-                            <action selector="serailPopupAction:" target="Voe-Tx-rLC" id="yI0-hC-wec"/>
-                            <binding destination="Jau-v6-hPS" name="content" keyPath="values.serialListPullDown" id="9wf-Va-TcD"/>
-                        </connections>
-                    </popUpButton>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W18-fp-OyO">
-                        <rect key="frame" x="20" y="217" width="511" height="61"/>
+                        <rect key="frame" x="20" y="183" width="511" height="61"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="input" drawsBackground="YES" id="4yq-AV-cx2">
                             <font key="font" metaFont="system"/>
@@ -803,7 +784,7 @@
                         </scroller>
                     </scrollView>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gt-1R-8WG">
-                        <rect key="frame" x="198" y="292" width="333" height="22"/>
+                        <rect key="frame" x="198" y="258" width="333" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="baud" drawsBackground="YES" id="iAY-j4-ctV">
                             <font key="font" metaFont="system"/>
@@ -812,9 +793,9 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNX-6K-Fgl">
-                        <rect key="frame" x="14" y="341" width="82" height="32"/>
+                        <rect key="frame" x="14" y="341" width="69" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b1A-43-leq">
+                        <buttonCell key="cell" type="push" title="Scan" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b1A-43-leq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -823,7 +804,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bup-SR-hE4">
-                        <rect key="frame" x="176" y="341" width="78" height="32"/>
+                        <rect key="frame" x="166" y="341" width="78" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="String" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2nZ-R0-1Rx">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -834,7 +815,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TYB-4e-L19">
-                        <rect key="frame" x="254" y="341" width="69" height="32"/>
+                        <rect key="frame" x="306" y="341" width="69" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Data" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fI8-Qz-dyj">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -845,7 +826,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AG9-yZ-e8g">
-                        <rect key="frame" x="323" y="341" width="74" height="32"/>
+                        <rect key="frame" x="375" y="341" width="74" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="S5D-LP-GZ9">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -855,6 +836,77 @@
                             <action selector="resetButtonAction:" target="Voe-Tx-rLC" id="m1Z-86-9UX"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rK1-Ns-sCE">
+                        <rect key="frame" x="449" y="341" width="88" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Current" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aSJ-no-BKl">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="currentButtonAction:" target="Voe-Tx-rLC" id="Tja-Zz-G5o"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oe2-6l-L9o">
+                        <rect key="frame" x="92" y="341" width="74" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="N3A-kh-a9Y">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="closeButtonAction:" target="Voe-Tx-rLC" id="qg1-A7-QSm"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cbe-D2-7z6">
+                        <rect key="frame" x="20" y="306" width="96" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="7n5-zL-yvM">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bed-Ho-MF0">
+                        <rect key="frame" x="118" y="300" width="88" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Change" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MJF-Ey-XQZ">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="changeBaudButton:" target="Voe-Tx-rLC" id="U7h-pQ-2sQ"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWQ-A6-Xjx">
+                        <rect key="frame" x="241" y="341" width="67" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Byte" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uW3-yb-hZQ">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="sendByteAction:" target="Voe-Tx-rLC" id="uia-Mj-VHb"/>
+                        </connections>
+                    </button>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ux5-E2-3CV">
+                        <rect key="frame" x="18" y="256" width="175" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="YJH-5c-lXF" id="u8L-az-Tw9">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <menu key="menu" title="OtherViews" id="dr8-6l-PPO">
+                                <items>
+                                    <menuItem state="on" id="YJH-5c-lXF"/>
+                                    <menuItem title="Item 2" id="G4I-pG-jcY"/>
+                                    <menuItem title="Item 3" id="M1R-0x-r22"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="serialPopupAction:" target="Voe-Tx-rLC" id="I9Z-0h-Y0f"/>
+                        </connections>
+                    </popUpButton>
                 </subviews>
             </view>
         </window>

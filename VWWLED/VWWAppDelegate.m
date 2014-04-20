@@ -11,33 +11,36 @@
 @interface VWWAppDelegate () <VWWArduinoControllerDelegate>
 @property (weak) IBOutlet NSButton *reloadConnectionButton;
 @property (strong) VWWArduinoController *arduinoController;
-@property (weak) IBOutlet NSPopUpButton *serailPortsPopup;
+@property (weak) IBOutlet NSPopUpButton *serialPortsPopup;
+@property (weak) IBOutlet NSTextField *baudTextField;
 
 @end
 
 @implementation VWWAppDelegate
 
 
-- (void)applicationDdFinishLaunching:(NSNotification *)aNotification
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    
-}
-- (IBAction)reloadButtonAction:(id)sender {
     if(self.arduinoController == nil){
         self.arduinoController = [[VWWArduinoController alloc]init];
         self.arduinoController.delegate = self;
     }
     
+    [self reloadButtonAction:nil];  
+    
+}
+- (IBAction)reloadButtonAction:(id)sender {
+
     
     [self.arduinoController refreshSerialList];
     NSArray *serialPorts = self.arduinoController.getSerialPorts;
     
-    [self.serailPortsPopup removeAllItems];
+    [self.serialPortsPopup removeAllItems];
 
-    [self.serailPortsPopup addItemsWithTitles:serialPorts];
+    [self.serialPortsPopup addItemsWithTitles:serialPorts];
 }
 
-- (IBAction)serailPopupAction:(NSPopUpButton*)sender {
+- (IBAction)serialPopupAction:(NSPopUpButton*)sender {
     
     
     NSMenuItem *menuItem = sender.itemArray[sender.indexOfSelectedItem];
@@ -46,7 +49,7 @@
     //NSString *serialPort = self.arduinoController.getSerialPorts[index];
     
     
-    NSLog(@"serailPort: %@", serialPort);
+    NSLog(@"serialPort: %@", serialPort);
     [self.arduinoController connectToSerialPort:serialPort withBaudRate:250000];
     
 }
@@ -55,6 +58,14 @@
 }
 
 - (IBAction)sendDataAction:(id)sender {
+    
+    NSString *str = @"data";
+    NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    [self.arduinoController writeData:data];
+}
+- (IBAction)sendByteAction:(id)sender {
+    uint8_t bytes[] = {'b', 'y', 't', 'e'};
+    [self.arduinoController writeByte:bytes];
 }
 
 - (IBAction)resetButtonAction:(id)sender {
@@ -69,13 +80,29 @@
 }
 
 -(void)arduinoController:(VWWArduinoController*)sender didReceiveString:(NSString*)inString{
-    NSLog(@"%s: %@", __PRETTY_FUNCTION__, inString);
+    NSLog(@"%s: \n%@", __PRETTY_FUNCTION__, inString);
 }
 
 -(void)arduinoController:(VWWArduinoController*)sender didReceiveData:(NSData*)inData{
-    NSLog(@"%s: %@", __PRETTY_FUNCTION__, inData.description);
+//    NSLog(@"%s: %@", __PRETTY_FUNCTION__, inData.description);
+
+    
+//    NSString* str = [[NSString alloc] initWithData:inData encoding:NSUTF8StringEncoding];
+//    NSLog(@"%s: \n%@", __PRETTY_FUNCTION__, str);
 }
 
+- (IBAction)currentButtonAction:(id)sender {
+    NSString *serialPort = self.arduinoController.currentSerialPort;
+    NSUInteger baudRate = self.arduinoController.currentBaudRate;
+    NSLog(@"Current serial port: %@ @ %ld", serialPort, (long)baudRate);
+}
 
+- (IBAction)closeButtonAction:(id)sender {
+    [self.arduinoController disconnectFromCurrentSerialPort];
+}
+- (IBAction)changeBaudButton:(id)sender {
+    NSInteger value = self.baudTextField.integerValue;
+    [self.arduinoController setBaudRateForCurrentSerialPort:value];
+}
 
 @end
